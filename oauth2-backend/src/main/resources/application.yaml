@@ -1,0 +1,24 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          my-keycloak-provider:
+            issuer-uri: https://localhost:8443/realms/chongster-realm
+        registration:
+          keycloak-spring-gateway-client:
+            provider: my-keycloak-provider
+            scope: openid, profile
+            client-id: chongster-client
+            client-secret: ThS9kQXDL6OmqLOAvUZZN6IB3fJHPk4d
+            authorization-grant-type: authorization_code
+            redirect-uri: https://localhost:9090/
+
+server:
+  ssl:
+    key-store: /Users/chongster/Desktop/JavaKeyStores/masterkey.jks
+    key-store-password: password
+    key-store-type: jks
+    key-alias: masterkey
+    key-password: password
+  port: 9090
